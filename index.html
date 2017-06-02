@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> One Drive Picker Sample </title>
+
+        <style>
+            body {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            #oneDriveBtn {
+                margin-bottom: 10px;
+            }
+
+            #app {
+                height: 700px;
+                width: 700px;
+            }
+
+            #view-content {
+                display: none;
+                text-decoration: none;
+                height: 20px;
+                border: 1px solid black;
+                padding: 5px;
+                background-color: blue;
+                color: white;
+                border-radius: 5px;
+            }
+
+        </style>
+        <script type="text/javascript" src="https://js.live.net/v7.2/OneDrive.js"></script>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            function success( files ) {
+                var file = files.value[0];
+
+                var appDiv = document.getElementById( 'app' );
+                appDiv.style.display = 'none';
+
+                var anchorTag = document.getElementById( 'view-content' );
+                anchorTag.style.display = 'block';
+                anchorTag.href = file.webUrl;
+            }
+
+            function launchOneDrivePicker() {
+
+                var appDiv = document.getElementById( 'app' );
+
+                var odOptions = {
+                    clientId: 'f8dff849-dde7-49be-b995-13a5495d488b',
+                    action: 'share',
+                    multiSelect: false,
+                    advanced: {
+                        iframeParentDiv: appDiv
+                    },
+                    success: success,
+                    cancel: function() { console.log( 'cancel' ); },
+                    error: function(e) { console.log( e ); }
+                }
+
+                OneDrive.open( odOptions );
+            }
+
+        </script>
+        <h1 id="header"> One Drive Picker </h1>
+
+        <button id="oneDriveBtn" onClick="launchOneDrivePicker()">
+            Open from One Drive
+        </button>
+
+        <div id="app"></div>
+        <a id='view-content' target="_blank"> View One Drive File </a>
+    </body>
+</html>
