@@ -48,6 +48,13 @@
                 anchorTag.style.display = 'block';
                 anchorTag.href = file.webUrl;
             }
+            
+            function cancel() { console.log( 'cancel' ); }
+            function error() { console.log( e ); }
+            
+            window.success = success;
+            window.cancel = cancel;
+            window.error = error;
 
             function launchOneDrivePicker() {
 
@@ -59,8 +66,8 @@
                     multiSelect: false,
                     openInNewWindow: false,
                     success: success,
-                    cancel: function() { console.log( 'cancel' ); },
-                    error: function(e) { console.log( e ); }
+                    cancel: cancel,
+                    error: error
                 }
 
                 OneDrive.open( odOptions );
