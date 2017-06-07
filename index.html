@@ -38,7 +38,7 @@
     <body>
         <script type="text/javascript">
 
-            function success( files ) {
+            var success = function( files ) {
                 var file = files.value[0];
 
                 var appDiv = document.getElementById( 'app' );
@@ -49,8 +49,8 @@
                 anchorTag.href = file.webUrl;
             }
             
-            function cancel() { console.log( 'cancel' ); }
-            function error(e) { console.log( e ); }
+            var cancel = function() { console.log( 'cancel' ); }
+            var error = function(e) { console.log( e ); }
             
             window.success = success;
             window.cancel = cancel;
