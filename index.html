@@ -65,9 +65,9 @@
                     action: 'share',
                     multiSelect: false,
                     openInNewWindow: false,
-                    success: success,
-                    cancel: cancel,
-                    error: error
+                    success: window.success,
+                    cancel: window.cancel,
+                    error: window.error
                 }
 
                 OneDrive.open( odOptions );
