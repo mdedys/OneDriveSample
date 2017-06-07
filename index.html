@@ -33,7 +33,7 @@
             }
 
         </style>
-        <script type="text/javascript" src="https://js.live.net/v7.2/OneDrive.js"></script>
+        <script type="text/javascript" src="https://js.live.net/v7.0/OneDrive.js"></script>
     </head>
     <body>
         <script type="text/javascript">
@@ -57,9 +57,7 @@
                     clientId: 'f8dff849-dde7-49be-b995-13a5495d488b',
                     action: 'share',
                     multiSelect: false,
-                    advanced: {
-                        iframeParentDiv: appDiv
-                    },
+                    openInNewWindow: false,
                     success: success,
                     cancel: function() { console.log( 'cancel' ); },
                     error: function(e) { console.log( e ); }
