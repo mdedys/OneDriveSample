@@ -33,7 +33,7 @@
             }
 
         </style>
-        <script type="text/javascript" src="https://js.live.net/v7.0/OneDrive.js"></script>
+        <script type="text/javascript" src="https://js.live.net/v7.2/OneDrive.js"></script>
     </head>
     <body>
         <script type="text/javascript">
@@ -51,10 +51,6 @@
             
             var cancel = function() { console.log( 'cancel' ); }
             var error = function(e) { console.log( e ); }
-            
-            window.success = success;
-            window.cancel = cancel;
-            window.error = error;
 
             function launchOneDrivePicker() {
 
@@ -64,10 +60,9 @@
                     clientId: 'f8dff849-dde7-49be-b995-13a5495d488b',
                     action: 'share',
                     multiSelect: false,
-                    openInNewWindow: false,
-                    success: 'success',
-                    cancel: 'cancel',
-                    error: 'error'
+                    success: success,
+                    cancel: cancel,
+                    error: error
                 }
 
                 OneDrive.open( odOptions );
